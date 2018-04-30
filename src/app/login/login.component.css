@@ -1,0 +1,42 @@
+.form-control
+{
+border-radius: 3px;
+box-shadow: none;
+border: none; 
+    padding: 4px 2px;
+}
+.form-group> label{
+   
+}
+.btn
+{
+    border-radius: 5px;
+    background: #12b776;
+    border: none; 
+}
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #363636;
+    text-align: center;
+    background-color: #fff;
+    border: 0;
+    border-radius: 3px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.signupform
+{
+    width: 350px;
+    margin: 0px auto;
+    position: relative;
+    top: -50px;
+}
+.logo-icon
+{
+    background: #12b776;
+    padding: 10px;
+    border-radius: 50%;
+}

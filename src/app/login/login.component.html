@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><span class="logo-icon"><i class="fa fa-user-o"></i></span>CMS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <form #g="ngForm" [formGroup]="loginform" (ngSubmit)="submitForm(g.value , g.valid)" class="navbar-form navbar-right" role="search">
+        <div class=" input-group form-group">
+           <span class="input-group-addon"><i class="fa fa-envelope-o "></i></span>
+          <input type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" placeholder="Email" formControlName="signinemail">
+        </div>
+        <div class="form-group input-group">
+           <span class="input-group-addon"><i class="fa fa-key "></i></span>
+          <input type="password" required class="form-control" placeholder="password" formControlName="signinpassword">
+        </div>
+        <button [disabled]="!loginform.valid" class="btn btn-success">Signin</button>
+      </form>
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<div class="banner-layer">
+  <div class="logo text-center">
+    <h1>
+  
+						<span class="fa fa-user-o" aria-hidden="true"></span>
+    </h1>
+  </div>
+  <div class="w3ls-container   text-center">
+
+    <div class="w3l-content">
+      <div class="left-grid">
+        <h2 class="text-w3layouts">best App for</h2>
+        <span class="text-w3layouts"> for CMS</span>
+      </div>
+      <div class="right-grid">
+        
+        <div class="sub-form">
+          <form class="signupform" #f="ngForm" [formGroup]="signupform" (ngSubmit)="submitsignupform(f.value , f.valid)">
+            <span style="display:block;font-size:1.5em" class="text-w3layouts">SignUp Here</span><br>
+            <div class="col-md-12">
+              <div class="input-group form-group">
+                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input  type="text" class="form-control"  required placeholder="Firstname" formControlName="fname">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="input-group form-group">
+                 <span class="input-group-addon"><i class="fa fa-user-o"></i></span>
+                <input type="text" required class="form-control"  placeholder="Lastname" formControlName="lname">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="input-group form-group">
+                 <span class="input-group-addon"><i class="fa fa-envelope-o "></i></span>
+                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required class="form-control" placeholder="Email" formControlName="email">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="input-group form-group">
+                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input type="password" required class="form-control" placeholder="password" formControlName="pwd">
+              </div>
+            </div>
+           
+              <button style="width:90%" [disabled]="!signupform.valid" class="btn btn-primary" type="submit">SignUp</button>
+          
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

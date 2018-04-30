@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<h2 class="title">Employee List</h2>
+<div class="container">
+  
+  
+  <button class="btn btn-primary pull-right" type="button" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show">Add Info</button>
+  <div class="col-md-12">
+      <div class="col-md-4">
+        <h2 class="filter-title">Filters</h2>
+          <h4 class="filterrange">Name</h4>
+          <input type="text" placeholder="Search by name" class="form-control" (input)="onSearchChange($event.target.value)">
+          <h4 class="filterrange">Age {{val}}</h4>
+          <p-slider [(ngModel)]="val" (onChange)="handleChange($event)"></p-slider>
+          <h4 class="filterrange">PF Balance Range {{val1}}</h4>
+          <p-slider [(ngModel)]="val1" [min]="0" [max]="100000" [step]="1000" (onChange)="balance($event)"></p-slider>
+          
+          
+      </div>
+      <div class="col-md-8">
+          
+          <div class="col-md-6" *ngFor="let contact of contactBO">
+            <div class="card">
+              <div class="name-bg"></div>
+              <div class="col-md-10 padding0">
+                <h4><i class="fa fa-user"></i><b>{{contact.firstname}}</b></h4>
+              </div>
+              <div class="col-md-2"><i class="fa fa-pencil edit" (click)="edit(contact._id)"></i></div>
+              <p class="clear"><i class="fa fa-mobile"></i>{{contact.phone}}</p>
+              <p><i class="fa fa-male"></i>{{contact.age}}</p>
+              <i class="fa fa-trash-o delete" (click)="delete(contact._id)"></i>
+              <div class="balwidth btn btn-primary"><i class="fa fa-credit-card"></i> PF Balance : {{contact.pfbalance}}</div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+
+</div>
+
+<p-dialog header="" [(visible)]="display" modal="modal" width="300" [responsive]="true">
+  <form #f="ngForm" [formGroup]="contactform" (ngSubmit)="submitForm(f.value , f.valid)">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Firstname</label>
+        <input type="text" class="form-control" formControlName="fname" [(ngModel)]="contactbyId.firstname">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>PF Balance</label>
+        <input type="text" class="form-control" formControlName="pfbalance" [(ngModel)]="contactbyId.pfbalance">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" class="form-control" formControlName="phone" [(ngModel)]="contactbyId.phone">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Age</label>
+        <input type="text" class="form-control" formControlName="age" [(ngModel)]="contactbyId.age">
+      </div>
+    </div>
+    <p-footer>
+      <button class="btn btn-primary" type="submit" pButton icon="fa-check" (click)="display=true" label="Yes">Submit</button>
+      <button class="btn btn-primary" type="button" pButton icon="fa-close" (click)="display=false" label="No">Cancel</button>
+    </p-footer>
+  </form>
+
+</p-dialog>
+
