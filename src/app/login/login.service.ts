@@ -13,7 +13,7 @@ export class LoginService {
         });
         header.append("Accept", 'application/json');
         let options = new RequestOptions({ headers: header });
-        return this.http.post(`http://localhost:8000/user/signup`, body, options)
+        return this.http.post(`https://meanstack-deployment.herokuapp.com/user/signup`, body, options)
             .map(this.handleResponse).catch(this.handleError);
     }
     loginuser(data): Observable<any> {
@@ -23,7 +23,7 @@ export class LoginService {
         });
         header.append("Accept", 'application/json');
         let options = new RequestOptions({ headers: header });
-        return this.http.post(`http://localhost:8000/user/signin`, body, options)
+        return this.http.post(`https://meanstack-deployment.herokuapp.com/user/signin`, body, options)
             .map(this.handleResponse).catch(this.handleError);
     }
     // logout() {

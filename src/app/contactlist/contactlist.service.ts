@@ -20,7 +20,7 @@ export class ContactlistService {
       : '';
     let options = new RequestOptions({ headers: header });
 
-    return this.http.post(`http://localhost:8000/api/contacts` + token, body, options)
+    return this.http.post(`https://meanstack-deployment.herokuapp.com/api/contacts` + token, body, options)
       .map(this.handleResponse).catch(this.handleError);
   }
 
@@ -35,7 +35,7 @@ export class ContactlistService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     let options = new RequestOptions({ headers: header });
-    return this.http.post(`http://localhost:8000/api/contact` + token, body, options)
+    return this.http.post(`https://meanstack-deployment.herokuapp.com/api/contact` + token, body, options)
       .map(this.handleResponse).catch(this.handleError);
   }
   EditContact(data, id): Observable<any> {
@@ -50,18 +50,18 @@ export class ContactlistService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     let options = new RequestOptions({ headers: header });
-    return this.http.put(`http://localhost:8000/api/contact/${id}` + token, body, options)
+    return this.http.put(`https://meanstack-deployment.herokuapp.com/api/contact/${id}` + token, body, options)
       .map(this.handleResponse).catch(this.handleError);
   }
   deleteContact(data): Observable<any> {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.delete(`http://localhost:8000/api/contact/${data}` + token)
+    return this.http.delete(`https://meanstack-deployment.herokuapp.com/api/contact/${data}` + token)
       .map(this.handleResponse).catch(this.handleError);
   }
   getContactbyId(data): Observable<any> {
-    return this.http.get(`http://localhost:8000/api/contacts/${data}`)
+    return this.http.get(`https://meanstack-deployment.herokuapp.com/api/contacts/${data}`)
       .map(this.handleResponse).catch(this.handleError);
   }
 
